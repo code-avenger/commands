@@ -1,0 +1,36 @@
+
+
+#BUILD
+docker build -f Dockerfile -t demo .				// THIS WILL GENERATE IMAGE WITH latest VERSION NAME
+docker build -f Dockerfile -t TAGNAME:VERSION .		// THIS WILL GENERATE IMAGE WITH VERSION	
+
+
+#RUN
+docker run -p 8761:8761 demo
+
+#TAG
+docker tag local-image:tagname new-repo:tagname
+docker tag demo codeavenger123/test:demo
+
+#PUSH
+docker push repo:tagname
+docker push codeavenger123/test:tagname
+
+#PULL
+docker pull repo:tagname
+docker pull codeavenger123/test:demo
+
+
+
+
+
+#Docker file :
+
+FROM openjdk:8
+ADD target/demo.jar demo.jar
+//EXPOSE 8085
+ENTRYPOINT ["java","-jar","demo.jar"]
+
+
+
+

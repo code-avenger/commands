@@ -1,0 +1,38 @@
+#to check the port is open or not
+	nmap -p 5000 16.32.156.31
+	
+#Issue the following command to list currently open ports.
+	firewall-cmd --list-ports
+	
+#Issue the following command to open port 1191 for TCP traffic after reboot. Use this command to make changes persistent.
+	firewall-cmd --permanent --add-port 5000/tcp
+	
+#Firewall Reload
+	firewall-cmd -q --reload
+	
+#host port is listening or not
+	netstat -ant | grep 5000
+	
+#to kill a process with port number
+	fuser 8080/tcp -k
+	
+#to kill a process using port
+	sudo kill -9 $(sudo lsof -t -i:8080)
+ 
+#find the details & pid using string 
+	ps -ef | grep account
+	kill -9 &pid
+	kill -9 $(lsof -t -i:8080)
+	
+#GET PORT NUMBER : netstat -pl | grep <NAME_OR_PID>
+#IS RUNNING : ps -eaf | grep <serviceName>
+
+#Find serviceName using port 
+	netstat -ltnp | grep -w ':8080' 
+	
+	
+#find the details using port
+	netstat -ano | findstr 8080
+ 
+
+	
