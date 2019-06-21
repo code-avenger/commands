@@ -1,3 +1,14 @@
+#untar the the file
+	tar -zxf zookeeper-3.4.6.tar.gz
+
+#create a file to add new data
+
+	vi conf/zoo.cfg
+	* enter i to insert, then start type the content to be in file. 
+	
+	*enter 'Esc'
+	*enter ':' , then click 'w', 'q'
+		
 #to check the port is open or not
 	nmap -p 5000 16.32.156.31
 	
@@ -33,6 +44,8 @@
 	
 #find the details using port
 	netstat -ano | findstr 8080
+	
+
  
 
 	

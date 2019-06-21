@@ -67,6 +67,7 @@
 	To create a new component, run the following:
 
 	ng g component my-component-a
+	
 	This will do several things:
 
 	create a directory called my-component-a under src/app directory
@@ -131,32 +132,32 @@
 	add MySubcomponentAComponent to the my-module-a.module.ts file
 	
 		
-# Types of Bindings
+# Types of Bindings ( data flow from component to html )
 
 	Interpolation
 	
-		-- This will be in html file
+		---- This will be in html file
 		<button id='{{buttonName}}'>myButton</button>  
 
-		-- This will be in component file.
+		---- This will be in component file.
 		
 		let buttonName = 'addButton';
 		
 	
 	PropertyBinding
 		
-		-- This will be in html file
+		---- This will be in html file
 		
 		<button [id]='buttonName'>myButton</button> 
 		
-		-- This will be in component file.
+		---- This will be in component file.
 		
 		let buttonName = 'addButton';
 	
 	AtrributeBinding
 		Attribute binding is same as property binding with the difference that we need to add attr. as prefix with attribute name.
 		
-		-- This will be in html file
+		---- This will be in html file
 		 <tr>
 			<td [attr.colspan]="clspn"> A + B </td>
 		</tr>
@@ -165,10 +166,10 @@
 	ClassBinding
 		The Angular Class binding is used to add or remove classes to and from the HTML elements. You can add CSS Classes conditionally to an element, hence creating a dynamically styled element.
 		
-		-- This will be in html file
+		---- This will be in html file
 		<button [ngClass]='addClasses()'>myButton</button>
 		
-		-- This will be in component file. boldClass and italicClass are two css classes declared in css file.
+		---- This will be in component file. boldClass and italicClass are two css classes declared in css file.
 		addClass(){
 			let classes = {
 			boldClass: true;
@@ -180,5 +181,44 @@
 	StyleBinding
 		We can set the inline styles of a HTML element using the style binding in angular.
 
-			-- This will be in html file
+			---- This will be in html file
 			<button [style.fontSize.px]="'20'" >Big Button</button>
+			
+#Event binding ( data flow from html to component )
+
+	---- This will be in html file
+		<button (click)='onClickMethod()'>myButton</button>
+							OR
+		<button on-click='onClickMethod()'>myButton</button>  ----- This is canonical form
+		
+		
+		
+	---- This will be in component file. boldClass and italicClass are two css classes declared in css file.
+		onClickMethod(){
+		console.log("button clicked");
+		}
+
+	
+#ternary operator
+
+	isPass ? 'passed' : 'failed'
+	
+#Structural Directives
+
+	---- *ngIf ( this works as if condition)
+
+		<div *ngIf="hero" class="name">{{hero.name}}</div>
+
+	---- *ngFor ( this works as forEach loop)
+		<ul>
+		  <li *ngFor="let hero of heroes">{{hero.name}}</li>
+		</ul>
+
+	---- *ngSwitch ( this works as Switch condition)
+	
+		<div [ngSwitch]="hero?.emotion">
+		  <app-happy-hero    *ngSwitchCase="'happy'"    [hero]="hero"></app-happy-hero>
+		  <app-sad-hero      *ngSwitchCase="'sad'"      [hero]="hero"></app-sad-hero>
+		  <app-confused-hero *ngSwitchCase="'confused'" [hero]="hero"></app-confused-hero>
+		  <app-unknown-hero  *ngSwitchDefault           [hero]="hero"></app-unknown-hero>
+		</div>
