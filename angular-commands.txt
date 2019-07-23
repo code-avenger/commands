@@ -49,19 +49,31 @@
 	To create a new class, run the following:
 
 	ng g class my-class-a
-	This will create a file called my-class-a.ts under the src/app directory. 
+		This will create a file called my-class-a.ts under the src/app directory. 
 	
 #Create An Interface
 	To create a new interface, run the following:
 
 	ng g interface my-interface-a
-	This will create a file called my-interface-a.ts under the src/app directory. 
+		This will create a file called my-interface-a.ts under the src/app directory. 
 
 #Create An Enumeration
 	To create a new enumeration, run the following:
 
 	ng g enum my-num
-	This will create a file called my-enum.enum.ts under the src/app directory. 
+		This will create a file called my-enum.enum.ts under the src/app directory. 
+		
+		
+#Dry run
+
+ng g component my-component --dry--run
+	This won't create component but show what all the files are going to create
+	
+	
+#Wthout spec file i.e. test file
+
+ng g component my-component --spec false
+	This created component but not spec.ts file which is meant for unit test file.
 
 #Create A Component
 	To create a new component, run the following:
